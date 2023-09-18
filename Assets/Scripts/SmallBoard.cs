@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,11 @@ public class SmallBoard : MonoBehaviour
     {
         if(flip1) Flip(board_state);
     }
-    
+
+    public void OnEnable() => Square.OnChangedState += CheckState;
+    public void OnDisable() => Square.OnChangedState -= CheckState;
+
+
     void Awake()
     {
         _children = GetChildren(transform);
@@ -146,7 +151,7 @@ public class SmallBoard : MonoBehaviour
     {
         if (check==1)
         {
-            GetChildren(_children.ElementAt(10)).ElementAt(1).GameObject().SetActive(false);
+            GetChildren(_children.ElementAt(11)).ElementAt(1).GameObject().SetActive(false);
         }
 
         if (transform.eulerAngles.y<=180)
@@ -154,7 +159,7 @@ public class SmallBoard : MonoBehaviour
             
             transform.Rotate(Time.deltaTime * 120 * new Vector3(0, 1, 0));
             if (transform.eulerAngles.y>=90)
-                _children.ElementAt(10).GameObject().SetActive(true);
+                _children.ElementAt(11).GameObject().SetActive(true);
             
         }
         else

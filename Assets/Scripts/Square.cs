@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,14 +10,29 @@ using UnityEngine.UI;
 public class Square : MonoBehaviour
 {
     private int _state;
+    private bool _playable;
+    public static event Action OnChangedState;
 
-    public bool change_state(bool player)
+
+    private void Awake()
+    {
+        _playable = true;
+    }
+
+    public void OnMouseDown() => change_state();
+
+    public void OnMouseEnter()
+        { if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = new Color(0.77f,0.77f,0.77f,1f); }
+    public void OnMouseExit()
+        { if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = (Color.white); }
+
+    public void change_state()
     {
         int temp = _state;
 
-        if (transform.parent.GetComponent<SmallBoard>().Get_board_state() == 0 && Playable())
+        if (transform.parent.GetComponent<SmallBoard>().Get_board_state() == 0 && _playable)
         {
-            if (player && _state == 0)
+            if (Turn.player && _state == 0)
             {
                 transform.GetChild(0).GameObject().SetActive(false);
                 transform.GetChild(1).GameObject().SetActive(false);
@@ -24,56 +40,38 @@ public class Square : MonoBehaviour
                 _state = 2;
             }
 
-            else if (!player && _state == 0)
+            else if (!Turn.player && _state == 0)
             {
                 transform.GetChild(0).GameObject().SetActive(false);
-                transform.GetChild(2).GameObject().SetActive(false);
                 transform.GetChild(1).GameObject().SetActive(true);
+                transform.GetChild(2).GameObject().SetActive(false);
                 _state = 1;
-            }
-
-            if (transform.parent.TryGetComponent<SmallBoard>(out SmallBoard classic))
-            {
-                classic.CheckState();
             }
         }
 
         if (temp != _state)
-            return true;
-
-        return false;
+        {
+            Turn.change_player();
+            OnChangedState?.Invoke();
+        }
     }
 
 
+    
     public int Getstate()
     {
         return _state;
     }
-
-    List<Transform> GetChildren(Transform parent)
+    
+    public bool Get_playable()
     {
-        List<Transform> children = new List<Transform>();
-        foreach (Transform child in parent)
-        {
-            children.Add(child);
-        }
-
-        return children;
+        return _playable;
     }
-
-    public bool Playable()
+    public void Set_playable(bool playable)
     {
-        if (transform.parent.TryGetComponent<SmallBoard>(out SmallBoard smallBoard))
-        {
-            
-            if (smallBoard.Get_playable())
-            {
-                return true;
-            }
-            
-        }else
-            return true;
-
-        return false;
+        this._playable = playable;
     }
+    
+    
+    
 }

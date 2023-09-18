@@ -18,14 +18,14 @@ public class EventClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
     
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _hover.ChangeBackground();
-        _hover.ShowOtherBackgrounds();
+        // _hover.ChangeBackground();
+        // _hover.ShowOtherBackgrounds();
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
-        _hover.ReturnBackground();
-        _hover.HideOtherBackgrounds();
+        // _hover.ReturnBackground();
+        // _hover.HideOtherBackgrounds();
     }
     
     public void OnPointerUp(PointerEventData eventData)
@@ -40,11 +40,11 @@ public class EventClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_square.change_state(player))
-        {
-            player = !player;
-            _click.SetPlayableField();
-        }
+        // if (_square.change_state(player))
+        // {
+        //     player = !player;
+        //     _click.SetPlayableField();
+        // }
         
         
 

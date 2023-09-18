@@ -50,9 +50,7 @@ public class Click : MonoBehaviour
         { 
             GetChildren(list2.ElementAt(i)).ElementAt(11).gameObject.SetActive(false);
             list2.ElementAt(i).GetComponent<SmallBoard>().Set_playable(false);
-
         }
-
     }
     
     
