@@ -5,13 +5,13 @@ public class EventClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
 {
 
     public static bool player=true;
-    private State _state;
+    private Square _square;
     private Hover _hover;
     private Click _click;
 
     private void Awake()
     {
-        _state = GetComponent<State>();
+        _square = GetComponent<Square>();
         _hover = GetComponent<Hover>();
         _click = GetComponent<Click>();
     }
@@ -40,7 +40,7 @@ public class EventClick : MonoBehaviour, IPointerDownHandler, IPointerUpHandler,
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (_state.change_state(player))
+        if (_square.change_state(player))
         {
             player = !player;
             _click.SetPlayableField();

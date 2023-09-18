@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class State : MonoBehaviour
+public class Square : MonoBehaviour
 {
     private int _state;
 
@@ -68,11 +68,12 @@ public class State : MonoBehaviour
             
             if (smallBoard.Get_playable())
             {
-                Debug.Log("WORKS");
                 return true;
             }
-        }
-        Debug.Log("BUYASFSF");
+            
+        }else
+            return true;
+
         return false;
     }
 }

@@ -105,7 +105,7 @@ public class SmallBoard : MonoBehaviour
         {
             for (int j = 0; j < _squares.GetLength(1); j++)
             {
-                if (_squares[i, j].TryGetComponent<State>(out State statecomponent))
+                if (_squares[i, j].TryGetComponent<Square>(out Square statecomponent))
                 {
 
                     if (_states[i, j] != statecomponent.Getstate())
