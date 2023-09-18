@@ -22,7 +22,9 @@ public class Square : MonoBehaviour
     public void OnMouseDown() => change_state();
 
     public void OnMouseEnter()
-        { if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = new Color(0.77f,0.77f,0.77f,1f); }
+    {
+        if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = new Color(0.77f,0.77f,0.77f,1f);
+    }
     public void OnMouseExit()
         { if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = (Color.white); }
 
