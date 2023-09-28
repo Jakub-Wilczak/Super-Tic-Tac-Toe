@@ -14,6 +14,7 @@ public class BigBoard : MonoBehaviour
 
     void Update()
     {
+        
     }
     
 
