@@ -18,6 +18,7 @@ public class SmallBoard : MonoBehaviour
     private int board_state;
     private bool _playable;
     private bool _predictable;
+    private bool _side;
     
 
 
@@ -37,7 +38,7 @@ public class SmallBoard : MonoBehaviour
         _states = new int[3, 3];
         _playable = true;
         _predictable = false;
-        Set_playableFields();
+        _side = true;
         SetSquares();
         SetStates();
     }
@@ -86,7 +87,7 @@ public class SmallBoard : MonoBehaviour
         {
             Debug.Log("FLIPPED");
             board_state = _states[x,y];
-            _playable = false;
+            Set_playable(false);
             _flip1 = true;
         }
     }
@@ -147,14 +148,12 @@ public class SmallBoard : MonoBehaviour
         {
             transform.Rotate(Time.deltaTime * 120 * new Vector3(0, 1, 0));
             if (transform.eulerAngles.y>=90)
-                _children.ElementAt(2).GameObject().SetActive(true);
+                SwapSide();
         }
         else
         {
-            Debug.Log("WTF IS THIS");
             _flip1 = false;
-            Debug.Log(board_state);
-            Set_playableFields();
+            //Set_playableFields();
         }
     }
 
@@ -193,23 +192,32 @@ public class SmallBoard : MonoBehaviour
             transform.GetChild(1).GetChild(0).GameObject().SetActive(false);
         _predictable = predictable;
     }
-    
-    
 
-    public void Set_playableFields()
+
+
+    public void SwapSide()
     {
-        List<Transform> list0 = GetChildren(transform.parent);
-
-        foreach (var child in list0)
+        if (board_state == 1) transform.GetChild(2).GetChild(0).GameObject().SetActive(true);
+        if (board_state == 2) transform.GetChild(2).GetChild(1).GameObject().SetActive(true);
+        
+        if (_side)
         {
-            if (child.GameObject().TryGetComponent<SmallBoard>(out SmallBoard smallBoard))
-            {
-                smallBoard.Set_playable(true);
-                //GetChildren(child).ElementAt(2).GameObject().SetActive(true);
-                Debug.Log("TEST");
-                
-            }
+            transform.GetChild(2).GameObject().SetActive(true);
         }
+        else
+            transform.GetChild(2).GameObject().SetActive(false);
+
+        _side = !_side;
     }
+
+
+    public void CheckBoardState()
+    {
+        
+    }
+    
+    
+
+    
     
 }

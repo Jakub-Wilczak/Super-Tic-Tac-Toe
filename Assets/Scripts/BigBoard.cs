@@ -11,6 +11,7 @@ public class BigBoard : MonoBehaviour
     {
         
         SetBoards();
+        Set_playableFields();
         //SetPlayableBackgrounds();
 
     }
@@ -142,6 +143,20 @@ public class BigBoard : MonoBehaviour
         }
 
     }
-    
-    
+
+
+    public void Set_playableFields()
+    {
+        for (int i = 0; i < _Boards.GetLength(0); i++)
+        {
+            for (int j = 0; j < _Boards.GetLength(1); j++)
+            {
+                _Boards[i, j].Set_playable(true);
+
+            }
+
+        }
+    }
+
+
 }
