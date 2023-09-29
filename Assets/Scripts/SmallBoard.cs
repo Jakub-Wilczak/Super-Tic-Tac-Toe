@@ -8,8 +8,6 @@ using UnityEngine;
 public class SmallBoard : MonoBehaviour
 {
     
-    
-    
     private List<Transform> _children;
     Transform [,] _squares;
     private int[,] _states;
@@ -18,13 +16,14 @@ public class SmallBoard : MonoBehaviour
     private bool flip1 = false;
     private int board_state=0;
     private bool _playable;
+    private bool _predictable;
     
 
 
 
     void Update()
     {
-        if(flip1) Flip(board_state);
+        if(flip1) Flip();
     }
 
     public void OnEnable() => Square.OnChangedState += CheckState;
@@ -33,11 +32,13 @@ public class SmallBoard : MonoBehaviour
 
     void Awake()
     {
-        _children = GetChildren(transform);
+        _children = GetChildren(transform.GetChild(0));
         _squares =new Transform[3,3];
         _states = new int[3, 3];
         _playable = true;
+        _predictable = false;
         Set_playableFields();
+        SetSquares();
         SetStates();
     }
 
@@ -94,7 +95,7 @@ public class SmallBoard : MonoBehaviour
     }
 
 
-    public void SetStates()
+    public void SetSquares()
     {
         
         for (int i = 0; i < _squares.GetLength(0); i++)
@@ -104,15 +105,16 @@ public class SmallBoard : MonoBehaviour
                 _squares[i, j] = _children.ElementAt(3*i+j);
             }
         }
-        
-        
+    }
+
+    public void SetStates()
+    {
         for (int i = 0; i < _squares.GetLength(0); i++)
         {
             for (int j = 0; j < _squares.GetLength(1); j++)
             {
                 if (_squares[i, j].TryGetComponent<Square>(out Square statecomponent))
                 {
-
                     if (_states[i, j] != statecomponent.Getstate())
                     {
                         x = i;
@@ -120,47 +122,40 @@ public class SmallBoard : MonoBehaviour
                         _states[i, j] = statecomponent.Getstate();
 
                     }
-
-
-
                 }
             }
         }
-
-        
     }
 
 
-    public void SetPlayableBackground()
+    // public void SetPlayableBackground()
+    // {
+    //     
+    //     List<Transform> list0 = GetChildren(transform.parent);
+    //     
+    //     foreach (var child in list0)
+    //     {
+    //         GetChildren(child).ElementAt(11).gameObject.SetActive(false);
+    //     }
+    //     
+    //     GetChildren(transform).ElementAt(11).gameObject.SetActive(true);
+    //
+    // }
+
+
+
+    public void Flip()
     {
-        
-        List<Transform> list0 = GetChildren(transform.parent);
-        
-        foreach (var child in list0)
-        {
-            GetChildren(child).ElementAt(11).gameObject.SetActive(false);
-        }
-        
-        GetChildren(transform).ElementAt(11).gameObject.SetActive(true);
-
-    }
-
-
-
-    public void Flip(int check)
-    {
-        if (check==1)
-        {
-            GetChildren(_children.ElementAt(11)).ElementAt(1).GameObject().SetActive(false);
-        }
+        // if (check==1)
+        // {
+        //     GetChildren(_children.ElementAt(11)).ElementAt(1).GameObject().SetActive(false);
+        // }
 
         if (transform.eulerAngles.y<=180)
         {
-            
             transform.Rotate(Time.deltaTime * 120 * new Vector3(0, 1, 0));
             if (transform.eulerAngles.y>=90)
-                _children.ElementAt(11).GameObject().SetActive(true);
-            
+                _children.ElementAt(2).GameObject().SetActive(true);
         }
         else
         {
@@ -190,8 +185,23 @@ public class SmallBoard : MonoBehaviour
 
     public void Set_playable(bool playable)
     {
+        if(playable)
+            transform.GetChild(1).GetChild(1).GameObject().SetActive(true);
+        else
+            transform.GetChild(1).GetChild(1).GameObject().SetActive(false);
         _playable = playable;
     }
+    
+    public void SetPredictable(bool predictable)
+    {
+        if(predictable)
+            transform.GetChild(1).GetChild(0).GameObject().SetActive(true);
+        else
+            transform.GetChild(1).GetChild(0).GameObject().SetActive(false);
+        _predictable = predictable;
+    }
+    
+    
 
     public void Set_playableFields()
     {
@@ -202,7 +212,7 @@ public class SmallBoard : MonoBehaviour
             if (child.GameObject().TryGetComponent<SmallBoard>(out SmallBoard smallBoard))
             {
                 smallBoard.Set_playable(true);
-                GetChildren(child).ElementAt(11).GameObject().SetActive(true);
+                //GetChildren(child).ElementAt(2).GameObject().SetActive(true);
                 Debug.Log("TEST");
                 
             }

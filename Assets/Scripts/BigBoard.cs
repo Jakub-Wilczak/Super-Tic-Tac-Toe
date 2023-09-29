@@ -6,9 +6,14 @@ using Unity.VisualScripting;
 using UnityEngine;
 public class BigBoard : MonoBehaviour
 {
-    void Awake(){
-        //SetPlayableBackgrounds();
+    private Transform [,] _Boards;
+    void Awake()
+    {
         
+        SetBoards();
+            
+        //SetPlayableBackgrounds();
+
     }
 
 
@@ -16,6 +21,8 @@ public class BigBoard : MonoBehaviour
     {
         
     }
+    
+    
     
 
 
@@ -32,6 +39,33 @@ public class BigBoard : MonoBehaviour
         //
         // GetChildren(transform).ElementAt(11).gameObject.SetActive(true);
 
+    }
+
+
+    public void SetBoards()
+    {
+        var temp = transform.GetChild(0);
+        _Boards = new Transform [3,3];
+        for (int i = 0; i < _Boards.GetLength(0); i++)
+        {
+            for (int j = 0; j < _Boards.GetLength(1); j++)
+            {
+                _Boards[i, j] = temp.GetChild(i * _Boards.GetLength(0) + j);
+            }
+        }
+    }
+    
+    
+    
+    List<Transform> GetChildren(Transform parent)
+    {
+        List<Transform> children = new List<Transform>();
+        foreach (Transform child in parent)
+        {
+            children.Add(child);
+        }
+
+        return children;
     }
     
     

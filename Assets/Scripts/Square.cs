@@ -32,7 +32,7 @@ public class Square : MonoBehaviour
     {
         int temp = _state;
 
-        if (transform.parent.GetComponent<SmallBoard>().Get_board_state() == 0 && _playable)
+        if (transform.parent.parent.GetComponent<SmallBoard>().Get_board_state() == 0 && _playable)
         {
             if (Turn.player && _state == 0)
             {
