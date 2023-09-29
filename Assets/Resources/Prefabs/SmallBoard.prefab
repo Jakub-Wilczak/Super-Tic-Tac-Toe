@@ -248,6 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c48a2752e6168547b8828086396dae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bigBoard: {fileID: 0}
 --- !u!1 &4892536841785130909
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,6 +505,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -578,6 +587,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -652,6 +669,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -726,6 +751,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -800,6 +833,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -874,6 +915,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -948,6 +997,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1022,6 +1079,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1096,6 +1161,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: smallBoard
+      value: 
+      objectReference: {fileID: 3837564347274846741}
+    - target: {fileID: 1031331335794858726, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
+      propertyPath: _smallBoard
+      value: 
+      objectReference: {fileID: 4163863223968258037}
     - target: {fileID: 5923496358470311787, guid: 8c9425267ebda924c9faea8c075059eb, type: 3}
       propertyPath: m_RootOrder
       value: 0

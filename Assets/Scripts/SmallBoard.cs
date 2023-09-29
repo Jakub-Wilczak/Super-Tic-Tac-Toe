@@ -11,10 +11,11 @@ public class SmallBoard : MonoBehaviour
     private List<Transform> _children;
     Transform [,] _squares;
     private int[,] _states;
+    public GameObject bigBoard;
     private int x;
     private int y;
-    private bool flip1 = false;
-    private int board_state=0;
+    private bool _flip1 = false;
+    private int board_state;
     private bool _playable;
     private bool _predictable;
     
@@ -23,11 +24,10 @@ public class SmallBoard : MonoBehaviour
 
     void Update()
     {
-        if(flip1) Flip();
+        if(_flip1) Flip();
     }
 
     public void OnEnable() => Square.OnChangedState += CheckState;
-    public void OnDisable() => Square.OnChangedState -= CheckState;
 
 
     void Awake()
@@ -55,6 +55,7 @@ public class SmallBoard : MonoBehaviour
 
     public void CheckState()
     {
+        Debug.Log("sadge");
         SetStates();
         bool check1 = false;
         
@@ -80,17 +81,12 @@ public class SmallBoard : MonoBehaviour
         if (!check1)
             if (_states[0, 2] == _states[1, 1] && _states[1, 1] == _states[2, 0] && _states[0, 2] != 0)
                 check1 = true;
-
         
-
-
-
-
         if (check1)
         {
             Debug.Log("FLIPPED");
             board_state = _states[x,y];
-            flip1 = true;
+            _flip1 = true;
         }
     }
 
@@ -107,7 +103,7 @@ public class SmallBoard : MonoBehaviour
         }
     }
 
-    public void SetStates()
+    public void SetStates()   
     {
         for (int i = 0; i < _squares.GetLength(0); i++)
         {
@@ -128,23 +124,11 @@ public class SmallBoard : MonoBehaviour
     }
 
 
-    // public void SetPlayableBackground()
-    // {
-    //     
-    //     List<Transform> list0 = GetChildren(transform.parent);
-    //     
-    //     foreach (var child in list0)
-    //     {
-    //         GetChildren(child).ElementAt(11).gameObject.SetActive(false);
-    //     }
-    //     
-    //     GetChildren(transform).ElementAt(11).gameObject.SetActive(true);
-    //
-    // }
+  
 
 
 
-    public void Flip()
+    public void Flip()   // simple flip animation with content swapping
     {
         // if (check==1)
         // {
@@ -160,7 +144,7 @@ public class SmallBoard : MonoBehaviour
         else
         {
             Debug.Log("WTF IS THIS");
-            flip1 = false;
+            _flip1 = false;
             Set_playableFields();
         }
     }

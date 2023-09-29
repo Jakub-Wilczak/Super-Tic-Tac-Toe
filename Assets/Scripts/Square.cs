@@ -5,12 +5,15 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Square : MonoBehaviour
 {
     private int _state;
+    private int[,] _xy_tab;
     private bool _playable;
+    public SmallBoard smallBoard;
     public static event Action OnChangedState;
 
 
@@ -31,8 +34,8 @@ public class Square : MonoBehaviour
     public void change_state()
     {
         int temp = _state;
-
-        if (transform.parent.parent.GetComponent<SmallBoard>().Get_board_state() == 0 && _playable)
+        
+        if (smallBoard.Get_board_state()==0 && _playable)
         {
             if (Turn.player && _state == 0)
             {

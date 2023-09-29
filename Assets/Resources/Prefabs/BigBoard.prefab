@@ -298,6 +298,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -368,6 +372,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -438,6 +446,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -508,6 +520,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -578,6 +594,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -680,6 +700,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -762,6 +786,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -832,6 +860,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -902,6 +934,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3837564347274846741, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
+      propertyPath: bigBoard
+      value: 
+      objectReference: {fileID: 105348498139970256}
     - target: {fileID: 4163863223968258036, guid: 8f74a0df3aa3c9d47b50c02b485a73e2, type: 3}
       propertyPath: m_RootOrder
       value: 6
