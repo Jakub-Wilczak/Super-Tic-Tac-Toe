@@ -11,7 +11,7 @@ public class SmallBoard : MonoBehaviour
     private List<Transform> _children;
     Transform [,] _squares;
     private int[,] _states;
-    public GameObject bigBoard;
+    public BigBoard bigBoard;
     private int x;
     private int y;
     private bool _flip1 = false;
@@ -202,4 +202,5 @@ public class SmallBoard : MonoBehaviour
             }
         }
     }
+    
 }
