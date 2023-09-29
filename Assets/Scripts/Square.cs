@@ -11,7 +11,8 @@ using UnityEngine.UI;
 public class Square : MonoBehaviour
 {
     private int _state;
-    private int[,] _xyTab;
+    private int _x;
+    private int _y;
     private bool _playable;
     public SmallBoard smallBoard;
     public static event Action OnChangedState;
@@ -27,10 +28,19 @@ public class Square : MonoBehaviour
     public void OnMouseEnter()
     {
         if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = new Color(0.77f,0.77f,0.77f,1f);
-            smallBoard.bigBoard.ShowPredictableBackgrounds(_xyTab);
+        
+        if(_playable) smallBoard.bigBoard.ShowPredictableBackgrounds(_x,_y);
+        
+        
+        
     }
+
     public void OnMouseExit()
-        { if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = (Color.white); }
+    {
+        if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = (Color.white); 
+        
+        smallBoard.bigBoard.HidePredictableBackgrounds();
+    }
 
     public void change_state()
     {
@@ -75,9 +85,27 @@ public class Square : MonoBehaviour
     }
     public void Set_playable(bool playable)
     {
-        this._playable = playable;
+        _playable = playable;
+    }
+
+    public void Set_x(int x)
+    {
+        _x = x;
+    }
+    public void Set_y(int y)
+    {
+        _y = y;
+    }
+
+    public int Get_x()
+    {
+        return _x;
     }
     
-    
+    public int Get_y()
+    {
+        return _y;
+    }
+
     
 }

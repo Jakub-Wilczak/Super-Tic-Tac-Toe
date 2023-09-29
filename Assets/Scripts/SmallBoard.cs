@@ -86,6 +86,7 @@ public class SmallBoard : MonoBehaviour
         {
             Debug.Log("FLIPPED");
             board_state = _states[x,y];
+            _playable = false;
             _flip1 = true;
         }
     }
@@ -99,9 +100,16 @@ public class SmallBoard : MonoBehaviour
             for (int j = 0; j < _squares.GetLength(1); j++)
             {
                 _squares[i, j] = _children.ElementAt(3*i+j);
+                if (_squares[i, j].TryGetComponent<Square>(out Square square))
+                {
+                    square.Set_x(i);
+                    square.Set_y(j);
+                }
             }
         }
     }
+    
+    
 
     public void SetStates()   
     {
@@ -145,6 +153,7 @@ public class SmallBoard : MonoBehaviour
         {
             Debug.Log("WTF IS THIS");
             _flip1 = false;
+            Debug.Log(board_state);
             Set_playableFields();
         }
     }
