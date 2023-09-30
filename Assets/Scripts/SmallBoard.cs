@@ -19,6 +19,7 @@ public class SmallBoard : MonoBehaviour
     private bool _playable;
     private bool _predictable;
     private bool _side;
+    public static event Action BoardChangedState;
     
 
 
@@ -86,6 +87,7 @@ public class SmallBoard : MonoBehaviour
         if (check1)
         {
             Debug.Log("FLIPPED");
+            BoardChangedState.Invoke();
             board_state = _states[x,y];
             Set_playable(false);
             _flip1 = true;
@@ -147,8 +149,11 @@ public class SmallBoard : MonoBehaviour
         if (transform.eulerAngles.y<=180)
         {
             transform.Rotate(Time.deltaTime * 120 * new Vector3(0, 1, 0));
-            if (transform.eulerAngles.y>=90)
+            if (transform.eulerAngles.y >= 90)
+            {
+                _side = true;
                 SwapSide();
+            }
         }
         else
         {
@@ -197,17 +202,19 @@ public class SmallBoard : MonoBehaviour
 
     public void SwapSide()
     {
-        if (board_state == 1) transform.GetChild(2).GetChild(0).GameObject().SetActive(true);
-        if (board_state == 2) transform.GetChild(2).GetChild(1).GameObject().SetActive(true);
-        
         if (_side)
         {
+            if (board_state == 1) transform.GetChild(2).GetChild(0).GameObject().SetActive(true);
+            if (board_state == 2) transform.GetChild(2).GetChild(1).GameObject().SetActive(true);
+            
             transform.GetChild(2).GameObject().SetActive(true);
         }
         else
             transform.GetChild(2).GameObject().SetActive(false);
+        
+            
 
-        _side = !_side;
+        
     }
 
 

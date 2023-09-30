@@ -313,6 +313,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BigBoard
       objectReference: {fileID: 0}
+    - target: {fileID: 105348498139970256, guid: e76e43d55467e6240a96dd9f41c52ba5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7688628017765307213, guid: e76e43d55467e6240a96dd9f41c52ba5, type: 3}
       propertyPath: m_RootOrder
       value: 1

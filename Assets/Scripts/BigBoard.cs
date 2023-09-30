@@ -6,10 +6,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 public class BigBoard : MonoBehaviour
 {
+    private int GameState; // 0 = Still ongoing // 1 -x WON // 2 - o WON //3 Draw
     private SmallBoard [,] _Boards;
+    private int [,] _statesBoards;
+    private int _x;
+    private int _y;
+    public void OnEnable() => SmallBoard.BoardChangedState += CheckState;
     void Awake()
     {
-        
+        _statesBoards = new int[3, 3];
         SetBoards();
         Set_playableFields();
         //SetPlayableBackgrounds();
@@ -55,6 +60,68 @@ public class BigBoard : MonoBehaviour
             }
         }
     }
+    
+    public void CheckState()
+    {
+        Debug.Log("SADDGE");
+        SetStates();
+        bool check1 = false;
+        
+
+        for (int i = 0; i < 3 && !check1; i++)
+        {
+
+            if (_statesBoards[i, 0] == _statesBoards[i, 1] && _statesBoards[i, 1] == _statesBoards[i, 2] && _statesBoards[i, 0] != 0)
+                check1 = true;
+
+            if (_statesBoards[0, i] == _statesBoards[1, i] && _statesBoards[1, i] == _statesBoards[2, i] && _statesBoards[0, i] != 0)
+                check1 = true;
+
+            if (_statesBoards[i, 0] == _statesBoards[i, 1] && _statesBoards[i, 1] == _statesBoards[i, 2] && _statesBoards[i, 0] != 0)
+                check1 = true;
+
+        }
+
+        if (!check1)
+            if (_statesBoards[0, 0] == _statesBoards[1, 1] && _statesBoards[1, 1] == _statesBoards[2, 2] && _statesBoards[0, 0] != 0)
+                check1 = true;
+
+        if (!check1)
+            if (_statesBoards[0, 2] == _statesBoards[1, 1] && _statesBoards[1, 1] == _statesBoards[2, 0] && _statesBoards[0, 2] != 0)
+                check1 = true;
+        
+        if (check1)
+        {
+            Debug.Log("FLIPPED BIG BOARD");
+            GameState = _statesBoards[_x,_y];
+            //_flip1 = true;
+        }
+    }
+    
+    
+    public void SetStates()   
+    {
+        for (int i = 0; i < _Boards.GetLength(0); i++)
+        {
+            for (int j = 0; j < _Boards.GetLength(1); j++)
+            {
+                if (_Boards[i, j].TryGetComponent<SmallBoard>(out SmallBoard smallBoard))
+                {
+                    if (_statesBoards[i, j] != smallBoard.Get_board_state())
+                    {
+                        _x = i;
+                        _y = j;
+                        _statesBoards[i, j] = smallBoard.Get_board_state();
+
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    
+    
     
     
     
