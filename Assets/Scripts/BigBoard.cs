@@ -26,11 +26,6 @@ public class BigBoard : MonoBehaviour
     {
         
     }
-    
-    
-    
-
-
 
     public void SetPlayableBackgrounds()
     {
@@ -45,7 +40,6 @@ public class BigBoard : MonoBehaviour
         // GetChildren(transform).ElementAt(11).gameObject.SetActive(true);
 
     }
-
 
     public void SetBoards()
     {
