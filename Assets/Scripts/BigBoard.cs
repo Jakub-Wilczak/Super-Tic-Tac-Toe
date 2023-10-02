@@ -16,7 +16,7 @@ public class BigBoard : MonoBehaviour
     {
         _statesBoards = new int[3, 3];
         SetBoards();
-        Set_playableFields();
+        AwokePlayableFields();
         //SetPlayableBackgrounds();
 
     }
@@ -206,7 +206,7 @@ public class BigBoard : MonoBehaviour
     }
 
 
-    public void Set_playableFields()
+    public void AwokePlayableFields()
     {
         for (int i = 0; i < _Boards.GetLength(0); i++)
         {
@@ -219,5 +219,53 @@ public class BigBoard : MonoBehaviour
         }
     }
 
+    public void HidePlayableFields()
+    {
+        for (int i = 0; i < _Boards.GetLength(0); i++)
+        {
+            for (int j = 0; j < _Boards.GetLength(1); j++)
+            {
+                _Boards[i, j].Set_playable(false);
 
+            }
+
+        }
+    }
+    
+    public void SetPlayableField(int x, int y)
+    {
+        HidePlayableFields();
+        
+        if (transform.parent.GetComponent<SmallBoard>().Get_board_state() == 0)
+        {
+            List<Transform> list1 = GetChildren(transform.parent);
+            int temp = 0;
+
+            for (int i = 0; i < 9; i++)
+            {
+                if (list1.ElementAt(i) == transform)
+                    temp = i;
+            }
+
+            List<Transform> list2 = GetChildren(transform.parent.parent);
+
+            if (list2.ElementAt(temp).GameObject().TryGetComponent<SmallBoard>(out SmallBoard classic))
+            {
+                if (classic.Get_board_state() == 0)
+                {
+                    GetChildren(list2.ElementAt(temp)).ElementAt(11).gameObject.SetActive(true);
+                    list2.ElementAt(temp).GetComponent<SmallBoard>().Set_playable(true);
+                }
+                else
+                {
+                    for (int i = 0; i < 9; i++)
+                    {
+                        GetChildren(list2.ElementAt(i)).ElementAt(11).gameObject.SetActive(true);
+                        list2.ElementAt(i).GetComponent<SmallBoard>().Set_playable(true);
+                    }
+                }
+
+            }
+        }
+    }
 }

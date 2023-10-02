@@ -30,9 +30,7 @@ public class Square : MonoBehaviour
         if (transform.GetChild(0).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite)) sprite.color = new Color(0.77f,0.77f,0.77f,1f);
         
         if(_playable) smallBoard.bigBoard.ShowPredictableBackgrounds(_x,_y);
-        
-        
-        
+
     }
 
     public void OnMouseExit()
@@ -64,6 +62,7 @@ public class Square : MonoBehaviour
                 _state = 1;
             }
         }
+        smallBoard.bigBoard.SetPlayableField(_x,_y);
 
         if (temp != _state)
         {
